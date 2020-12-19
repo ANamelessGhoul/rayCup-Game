@@ -134,8 +134,10 @@ namespace CupGame
 			_cups[i].Draw();
 		}
 		
-        //DrawText(TextFormat("Mouse position Y: %f %f", _mousePosition.x, _mousePosition.y), 190, 200, 20, LIGHTGRAY);
-
+		#ifdef DEBUG_TEXT
+        DrawText(TextFormat("Mouse position Y: %f %f", _mousePosition.x, _mousePosition.y), 190, 200, 20, LIGHTGRAY);
+		#endif
+		
 		switch (GameState)
 		{
 		case Swapping:
