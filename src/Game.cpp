@@ -139,12 +139,16 @@ namespace CupGame
 		switch (GameState)
 		{
 		case Swapping:
+			#ifdef DEBUG_TEXT
 			DrawText(TextFormat("Timer: %f", _timer), 190, 100, 20, LIGHTGRAY);	
 			DrawText(TextFormat("Swapping: %i and %i", _first, _second), 190, 150, 20, LIGHTGRAY);
+			#endif
 			break;
 		case Selecting:
+			#ifdef DEBUG_TEXT
 			if(_selectedCup != -1)
 				DrawText(TextFormat("Cup Selected: %i", _selectedCup), 190, 150, 20, LIGHTGRAY);
+			#endif
 			break;
 		case GameOver:
 			DrawText(_win ? "You Win!" : "You Lose!", 190, 130, 20, _win ? GREEN : RED);
