@@ -16,6 +16,13 @@ namespace CupGame
 		_ballTexture = LoadTexture("resources/Ball.png");
 	}
 
+	void Cup::UnloadTextures()
+	{
+		UnloadTexture(_mainTexture);
+		UnloadTexture(_outlineTexture);
+		UnloadTexture(_ballTexture);
+	}
+
 	Cup::Cup()
 	{
 	}

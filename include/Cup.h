@@ -9,6 +9,7 @@ namespace CupGame
 	{
 	public:
 		static void LoadTextures();
+		static void UnloadTextures();
 
 		static float Speed;
 

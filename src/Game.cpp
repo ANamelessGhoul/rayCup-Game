@@ -35,6 +35,8 @@ namespace CupGame
 
 	Game::~Game()
 	{
+		UnloadTexture(_background);
+		Cup::UnloadTextures();
 	}
 
 	void Game::Update(float deltaTime)
