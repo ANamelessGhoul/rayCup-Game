@@ -13,7 +13,7 @@ namespace CupGame
 		ScreenSize.x = GetScreenWidth();
 		ScreenSize.y = GetScreenHeight();
 
-		_background = LoadTexture("resources/PerlinNoise.png");
+		_background = LoadTexture("resources/Background.png");
 		Cup::LoadTextures();
 
 		Vector2 position = {ScreenSize.x * 0.2f, ScreenSize.y * 2 / 3.0f};
@@ -133,9 +133,7 @@ namespace CupGame
 
 	void Game::Draw()
 	{
-        ClearBackground(RAYWHITE);
-
-		DrawTexture(_background, ScreenSize.x/2 - _background.width/2, ScreenSize.y/2 - _background.height/2, WHITE);
+		DrawTextureEx(_background, {ScreenSize.x/2 - _background.width * 2, ScreenSize.y/2 - _background.height * 2}, 0, 4, WHITE);
 
 		for (int i = 0; i < CUP_COUNT; i++)
 		{
