@@ -14,9 +14,9 @@ namespace CupGame
 	enum GameState
 	{
 		Start,
-		Showing,
 		Swapping,
 		Selecting,
+		Showing,
 		GameOver
 	};
 

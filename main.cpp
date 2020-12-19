@@ -10,7 +10,7 @@ int main(void)
 
     InitWindow(screenWidth, screenHeight, "raylib Shell Game");
 
-    SetTargetFPS(300);               // Set our game to run at 60 frames-per-second
+    SetTargetFPS(120);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
     CupGame::Game Game = CupGame::Game();

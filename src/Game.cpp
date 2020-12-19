@@ -113,7 +113,7 @@ namespace CupGame
 				GameState = GameOver;
 				_timer = 0;
 			}
-			break;	
+			break;
 		case GameOver:
 			_timer += deltaTime;
 			if(_timer > 2.5f)
@@ -239,7 +239,8 @@ namespace CupGame
 		}
 
 		_swapCount = _totalSwaps;
-		_timer = 3;
+		_timer = 0;
+		_timerLimit = 3; 
 		GameState = Start;
 	}
 } // namespace CupGame
