@@ -1,0 +1,56 @@
+#ifndef CUP_H
+#define CUP_H
+
+#include "raylib.h"
+
+namespace CupGame
+{
+	class Cup
+	{
+	public:
+		static void LoadTextures();
+
+		static float Speed;
+
+		Cup();
+		~Cup();
+		void Init(const Vector2& position, bool hasBall);
+		void Reset();
+		void Update(float deltaTime);
+		void Draw();
+		bool CheckPointCollision(const Vector2& point);
+
+		void SetTargetPosition(const Vector2&, bool Infront);
+
+		Vector2& GetPosition();
+		void SetBall(bool);
+		bool GetBall();
+
+		bool MousedOver = false;
+		bool IsSwapping;
+	private:
+		static Texture2D _mainTexture;
+		static Texture2D _outlineTexture;
+		static Texture2D _ballTexture;
+
+		void DrawTexture(const Texture2D& texture, const Color& tint = WHITE);
+		void DrawTexture(const Texture2D& texture, const Vector2&, const Color& tint = WHITE);
+
+		float _time;
+
+		Vector2 _colliderSize;
+		Vector2 _cornerOffset;
+
+		Vector2 _position;
+		bool _hasBall;
+
+		Vector2 _startPosition;
+		Vector2 _midPosition;
+		Vector2 _targetPosition;
+	};
+
+	
+} // namespace CupGame
+
+
+#endif //CUP_H
