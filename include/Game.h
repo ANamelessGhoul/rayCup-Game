@@ -41,6 +41,7 @@ namespace CupGame
 		int _selectedCup = -1;
 		Cup _cups[CUP_COUNT];
 		Vector2 _startingPositions[CUP_COUNT];
+		Cup* _cupRenderOrder[CUP_COUNT];
 
 		int _first;
 		int _second;

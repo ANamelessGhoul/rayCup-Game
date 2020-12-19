@@ -23,6 +23,8 @@ namespace CupGame
 			_cups[i].Init(position, false);
 			position.x += ScreenSize.x * 0.3f;
 
+			_cupRenderOrder[i] = &_cups[i];
+
 			#ifdef DEBUG_TEXT
 			_cups[i].SetIndex(i);
 			#endif
@@ -137,7 +139,7 @@ namespace CupGame
 
 		for (int i = 0; i < CUP_COUNT; i++)
 		{
-			_cups[i].Draw();
+			_cupRenderOrder[i]->Draw();
 		}
 		
 		#ifdef DEBUG_TEXT
@@ -196,9 +198,16 @@ namespace CupGame
 		_cups[firstIndex].SetIndex(secondIndex);
 		_cups[secondIndex].SetIndex(firstIndex);
 		#endif
+
+		_cupRenderOrder[0] = &_cups[secondIndex];
+		_cupRenderOrder[1] = &_cups[thirdIndex];
+		_cupRenderOrder[2] = &_cups[firstIndex];
+
 		auto temp = _cups[firstIndex];
 		_cups[firstIndex] = _cups[secondIndex];
 		_cups[secondIndex] = temp;
+
+		
 
 	}
 

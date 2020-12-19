@@ -1,7 +1,7 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
-#define DEBUG
+//#define DEBUG
 #ifdef DEBUG
 	#define SHOW_COLLIDERS
 	#define DEBUG_TEXT
