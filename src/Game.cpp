@@ -22,6 +22,10 @@ namespace CupGame
 			_startingPositions[i] = Vector2(position);
 			_cups[i].Init(position, false);
 			position.x += ScreenSize.x * 0.3f;
+
+			#ifdef DEBUG_TEXT
+			_cups[i].SetIndex(i);
+			#endif
 		}
 
 		int randomCupIndex = GetRandomValue(0, CUP_COUNT - 1);
@@ -80,14 +84,14 @@ namespace CupGame
 				if(_timer > _timerLimit)
 				{
 					_timer = 0;
-					SwapBalls();
 					_swapCount--;
-				}
-			}
 
-			if(_swapCount <= 0)
-			{
-				GameState = Selecting;
+					if(_swapCount != 0)
+						SwapBalls();
+					else
+						GameState = Selecting;
+					
+				}
 			}
 
 			break;	
@@ -182,12 +186,19 @@ namespace CupGame
 
 	void Game::SwapBalls(int firstIndex, int secondIndex)
 	{
-		bool firstInFront = firstIndex < secondIndex;
-		//int thirdIndex = 3 - (firstIndex + secondIndex);
+		int thirdIndex = 3 - (firstIndex + secondIndex);
 
-		_cups[firstIndex].SetTargetPosition(_cups[secondIndex].GetPosition(), firstInFront);
-		_cups[secondIndex].SetTargetPosition(_cups[firstIndex].GetPosition(), !firstInFront);
+		_cups[firstIndex].SetTargetPosition(_cups[secondIndex].GetPosition(), true);
+		_cups[secondIndex].SetTargetPosition(_cups[firstIndex].GetPosition(), false);
 		//_cups[thirdIndex].SetTargetPosition(_cups[firstIndex].GetPosition(), !firstInFront);
+
+		#ifdef DEBUG_TEXT
+		_cups[firstIndex].SetIndex(secondIndex);
+		_cups[secondIndex].SetIndex(firstIndex);
+		#endif
+		auto temp = _cups[firstIndex];
+		_cups[firstIndex] = _cups[secondIndex];
+		_cups[secondIndex] = temp;
 
 	}
 

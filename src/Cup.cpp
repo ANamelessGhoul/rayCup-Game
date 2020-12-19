@@ -128,6 +128,9 @@ namespace CupGame
 			//DrawTexture(_outlineTexture, GREEN);
 		
 		DrawTexture(_mainTexture);
+		#ifdef DEBUG_TEXT
+		DrawText(TextFormat("%i", _index), _position.x, _position.y, 20, LIGHTGRAY);
+		#endif
 
 		#ifdef SHOW_COLLIDERS
 		DrawRectangleV(Vector2Add(_position, _cornerOffset), _colliderSize, COLLIDER_COLOR);
@@ -180,4 +183,11 @@ namespace CupGame
 	{
 		return _hasBall;
 	}
+
+	#ifdef DEBUG_TEXT
+	void Cup::SetIndex(int index)
+	{
+		_index = index;
+	}
+	#endif
 } // namespace CupGame

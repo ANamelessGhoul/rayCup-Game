@@ -1,14 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "Debug.h"
 #include "Cup.h"
 #include "raylib.h"
 
-//#define DEBUG
-#ifdef DEBUG
-	#define SHOW_COLLIDERS
-	#define DEBUG_TEXT
-#endif
+
 #define COLLIDER_COLOR CLITERAL(Color){ 0, 228, 48, 63}
 #define CUP_COUNT 3
 

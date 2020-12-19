@@ -1,7 +1,9 @@
 #ifndef CUP_H
 #define CUP_H
 
+#include "Debug.h"
 #include "raylib.h"
+
 
 namespace CupGame
 {
@@ -20,6 +22,7 @@ namespace CupGame
 		void Update(float deltaTime);
 		void Draw();
 		bool CheckPointCollision(const Vector2& point);
+		
 
 		void SetTargetPosition(const Vector2&, bool Infront);
 
@@ -29,6 +32,10 @@ namespace CupGame
 
 		bool MousedOver = false;
 		bool IsSwapping;
+
+		#ifdef DEBUG_TEXT
+		void SetIndex(int);
+		#endif
 	private:
 		static Texture2D _mainTexture;
 		static Texture2D _outlineTexture;
@@ -39,6 +46,8 @@ namespace CupGame
 
 		float _time;
 
+
+
 		Vector2 _colliderSize;
 		Vector2 _cornerOffset;
 
@@ -48,6 +57,10 @@ namespace CupGame
 		Vector2 _startPosition;
 		Vector2 _midPosition;
 		Vector2 _targetPosition;
+
+		#ifdef DEBUG_TEXT
+		int _index;
+		#endif
 	};
 
 	
